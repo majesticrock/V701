@@ -1,2 +1,154 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Distanz von 2,4 cm}
+
+Zur Bestimmung der mittleren Reichweite der $\alpha$-Strahlung werden die Daten aus \autoref{tab:d24cm} geplottet.
+Dazu werden die Counts gegen effektive Länge $x := \dfrac{x_0 p}{p_0}$ aufgetragen.
+Des Weiteren wird durch den starken nahezu linearen Abfall der Counts gegen Ende der Messung ein linearer Fit der Form
+
+\begin{equation}
+    c(x) = a_{2,4} \cdot x + b_{2,4}
+\end{equation}
+
+gelegt.
+
+\input{../content/d24cm.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_countd24.pdf}
+    \caption{Plot der Messwerte bei $x_0 = 2,4$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
+    \label{fig:plot24}
+\end{figure}
+
+Dieser Plot ist in \autoref{fig:plot24} zu sehen.
+Mittels Python 3.7.0 werden die Koeffizienten wie folgt bestimmt:
+
+\begin{center}
+    $a_{2,4} = (-9,0 \pm 0,6) \cdot 10^{4}$ $\frac{1}{\symup{cm}}$
+
+    $b_{2,4} = (2,0 \pm 0,1) \cdot 10^{5}$.
+\end{center}
+
+Daraus errechnet sich direkt die mittlere Reichweite 
+
+\begin{center}
+    $x_\text{mittel} = \frac{c_{2,4} - b_{2,4}}{a_{2,4}} = (1,5 \pm 0,2)$ cm.
+\end{center}
+
+wobei $c_{2,4}$ der höchste "Count"-Wert aus \autoref{tab:d24cm} ist. Der zugehörige Fehler nach Gauß berechnet sich nach
+
+\begin{equation}
+    \Delta x_\text{mittel} = \sqrt{\bigg(\frac{1}{a_{2,4}} \cdot \Delta b_{2,4} \bigg)^2 + \bigg( \frac{c_{2,4}-b_{2,4}}{a_{2,4}^2} \cdot \Delta a_{2,4} \bigg)^2}.
+\end{equation}
+
+Um die Energie der Strahlung an dieser Stelle zu errechnen werden die Energiewerte aus \autoref{tab:d24cm} gegen die effektive Länge in einem Plot aufgetragen.
+Durch die Werte, die sich linear verhalten, wird ein Fit der Form
+
+\begin{equation}
+    E_{2,4}(x) = m_{2,4} x + n_{2,4}
+\end{equation}
+
+gelegt. Dieser Plot ist in \autoref{fig:plotE24} zu sehen
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_E24.pdf}
+    \caption{Plot der Energien bei $x_0 = 2,4$ cm, wobei über den linearen Teil ein Fit gelegt ist.}
+    \label{fig:plotE24}
+\end{figure}
+
+Die Koeffizienten werden erneut mittels Python 3.7.0 bestimmt. Sie betragen
+
+\begin{center}
+    $m_{2,4} = (-1,09 \pm 0,02)$ $\frac{\symup{MeV}}{\symup{cm}}$
+
+    $n_{2,4} = (4,09 \pm 0,2)$ MeV.
+\end{center}
+
+Damit lässt sich $E_{2,4}(x_\text{mittel}) = (2,5 \pm 0,3)$ MeV berechnen. Der Fehler berechnet sich dabei nach
+
+\begin{equation}
+    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{2,4} \Delta \bigg)^2 + \bigg(m_{2,4} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( n_{2,4} \bigg)^2}.
+\end{equation}
+
+
+
+\subsection{Distanz von 4,2 cm}
+
+Die gleiche Prozedur wird nun mit einem anderen $x_0$ durchgeführt. Dieses beträgt nun $4,2$ cm.
+Zunächst werden aus den Daten in \autoref{tab:d42cm} die Counts gegen die effektive Länge aufgetragen. Erneut wird ein Fit der Form
+
+\begin{equation}
+    c(x) = a_{4,2} \cdot x + b_{4,2}
+\end{equation}
+
+über den linearen Abfall gelegt. Der entstehende Plot ist in \autoref{fig:plot42} zu sehen.
+
+\input{../content/d42cm.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_countd42.pdf}
+    \caption{Plot der Messwerte bei $x_0 = 4,2$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
+    \label{fig:plot42}
+\end{figure}
+
+Mittels Python 3.7.0 werden die Koeffizienten bestimmt:
+
+\begin{center}
+    $a_{4,2cm} = (-2,8 \pm 0,2) \cdot 10^{4}$ $\frac{1}{\symup{cm}}$
+
+    $b_{4,2cm} = (6,6 \pm 0,4) \cdot 10^{4}$.
+\end{center}
+
+Damit kann erneut die mittlere Reichweite bestimmt werden:
+
+\begin{center}
+    $x_\text{mittel} = \frac{c_{4,2} - b_{4,2}}{a_{4,2}} = (1,3 \pm 0,2)$ cm.
+\end{center}
+
+Dabei ist $c_{4,2}$ der höchste "Count"-Wert aus \autoref{tab:d42cm}. Der Fehler nach  Gauß berechnet sich nach
+
+\begin{equation}
+    \Delta x_\text{mittel} = \sqrt{\bigg(\frac{1}{a_{4,2}} \cdot \Delta b_{4,2} \bigg)^2 + \bigg( \frac{c_{4,2}-b_{4,2}}{a_{4,2}^2} \cdot \Delta a_{4,2} \bigg)^2}.
+\end{equation}
+
+Zur Bestimmung der Energie werden die Werte aus \autoref{tab:d42cm} aufgetragen. Über das lineare Gefälle wird ein Fit der Form
+
+\begin{equation}
+    E_{4,2}(x) = m_{4,2} x + n_{4,2}
+\end{equation}
+
+gelegt. Der entstehende Plot ist in \autoref{fig:plotE42} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_E24.pdf}
+    \caption{Plot der Energien bei $x_0 = 4,2$ cm, wobei über den linearen Teil ein Fit gelegt ist.}
+    \label{fig:plotE24}
+\end{figure}
+
+In diesem Plot ist aus Gründen der Lesbarkeit und Skalierung der letzte Wert nicht aufgenommen. Bei diesem wurden keine Strahlung mehr gemessen.
+Mittels Python 3.7.0 werden die Koeffizienten als
+
+\begin{center}
+    $m_{4,2} = (-0,85 \pm 0,04)$ $\frac{\symup{MeV}}{\symup{cm}}$
+
+    $n_{4,2} = (3,91 \pm 0,07)$ MeV
+\end{center}
+
+bestimmt.
+Somit wird $E_{4,2}(x_\text{mittel} = (2,8 \pm 0,2)$ MeV berechnet. Der zugehörige Fehler berechnet sich nach
+
+\begin{equation}
+    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{4,2} \Delta \bigg)^2 + \bigg(m_{4,2} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( n_{4,2} \bigg)^2}.
+\end{equation}
+
+
+
+
+\subsection{Verteilung der Anzahl der "Counts"}
+
+\input{../content/100werte.tex}
