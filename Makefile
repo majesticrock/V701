@@ -1,11 +1,17 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python plot.py
+build/plot_countd24.pdf: plotd24-c.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plotd24-c.py
+
+build/plot_countd42.pdf: plotd42-c.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plotd42-c.py
+
+build/plot_gauss.pdf: gauss.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python gauss.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot_countd24.pdf build/plot_countd42.pdf build/plot_gauss.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
