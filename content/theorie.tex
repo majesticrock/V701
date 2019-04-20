@@ -1,2 +1,34 @@
+\section{Zielsetzung}
+    In diesem Versuch soll die Reichweite von $\alpha$-Strahlung bestimmt werden, sowie die Statistik des radioaktiven Zerfalls überprüft werden.
 \section{Theorie}
 \label{sec:Theorie}
+    Durch Bestimmung der Reichweite von $\alpha$-Strahlung kann auf die zugehörige Energie geschlossen werden. Wenn $\alpha$-Strahlung
+    Materie durchläuft kann diese einerseits durch elastische Stöße mit dem Material Energie verlieren, was hier aber eine untergeordnete
+    Rolle spielt, andererseits durch Anregung beziehungsweise Dissoziation von Molekülen Energie abgeben. Der Energieverlust
+    $\frac{\symup{d} \, E_{\symup{\alpha}}} {\symup{d} \, x}$ lässt sich durch die Bethe-Bloch Gleichung ausdrücken:
+    \begin{equation}
+    \label{eqn:bethe-bloch}
+       - \frac{\symup{d} \, E_{\symup{\alpha}}} {\symup{d} \, x} = \frac{q^2 e^4} {4 \pi \epsilon_{\symup{0}} m_{\symup{e}}} \frac{n Z} {v^2} \ln \Bigl( \frac{2 m_{\symup{e}} v^2 }{I} \Bigr).
+   \end{equation}    
+   Hierbei ist $q$ die Ladung und $v$ die Geschwindigkeit der $\alpha$-Strahlung; $Z$ die Ordnungszahl, $n$ die Teilchendichte und $I$ die 
+   Ionisierungsenergie des beschossenen Gases. Die Reichweite $R$ lässt sich über 
+   \begin{equation}
+   \label{eqn:Reichweite}
+        R = \int_0^{E_{\symup{\alpha}}} \frac{\symup{d} \, E_{\symup{\alpha}}} {-\symup{d} \, E_{\symup{\alpha}} / \symup{d} \, x  }
+   \end{equation}
+   berechnen. Die Bethe-Bloch Gleichung besitzt allerdings nur eine Gültigkeit für hohe Energien. Für niedrigere Energien kann die mittlere
+   Reichweite $R_{\symup{m}}$, also die Reichweite, die die Hälfte der $\alpha$-Teilchen noch erreichen, über experimentell gewonnene Kurven bestimmt werden.
+   Für $\alpha$-Strahlung in Luft mit Energien von $E_{\symup{\alpha}} \leq 2.5 \symup{MeV}$ gilt 
+   \begin{equation}
+   \label{eqn:mittlere-reichweite}
+        R_{\symup{m}} = 3.1 \cdot E_{\symup{\alpha}}^{\frac{3}{2}}, 
+   \end{equation}     
+   wobei $ R_{\symup{m}} $ hier die Einheit mm hat und $E_{\symup{\alpha}}$ in MeV vorliegt.
+   Zur Bestimmung der Reichweite von $\alpha$-Strahlung kann eine Absorptionsmessung durchgeführt werden, wobei der Umgebungsdruck variiert wird,
+   da die Reichweite von $\alpha$-Strahlung bei konstantem Druck und konstanter Temperatur, proportional zum Druck $p$ ist. Für einen 
+   festen Abstand $x_{\symup{0}}$ zwischen Detektor und Strahler lässt sich die effektive Länge $x$ über 
+   \begin{equation}
+   \label{eqn:effektive-laenge}
+        x = x_{\symup{0}} \frac{p}{p_{\symup{0}}}
+   \end{equation}
+   bestimmen, wobei $p_{\symup{0}}$ der Normaldruck ist.     
