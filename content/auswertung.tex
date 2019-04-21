@@ -155,4 +155,62 @@ Die aufgenommen Messwerte bei einer Integrationszeit von $\Delta t = 10$ s sind 
 
 \input{../content/100werte.tex}
 
-Diese
+Der Erwartungswert dieser Daten berechnet sich nach
+
+\begin{equation}
+    \mu = \sum_{i=1}^{N} x_i p_i,
+\end{equation}
+
+wobei $N$ die Anzahl der Messwerte, $x_i$ der jeweilige Wert und $p_i$ die Wahrscheinlichkeit für den jeweiligen Wert ist.
+In diesem Fall ist $N = 100$ und $p_i = \dfrac{1}{N}$ für alle Daten.
+
+Damit beträgt $\mu \approx 3827,43$.
+Damit lässt sich die Varianz wie folgt berechnen:
+
+\begin{equation}
+    \sigma^2 = \sum_{i=1}^{N} (x_i - \mu)^2 \cdot p_i \approx 19418,025.
+\end{equation}
+
+Damit lässt sich eine Gaußkurve der Form
+
+\begin{equation}
+    f(x | \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot e^{- \frac{(x_i - \mu)^2}{2 \sigma^2}}
+\end{equation}
+
+berechnen. Zum Vergleich der Werte mit dieser Kurve werden die Werte in einem Balkendiagramm zusammen mit der Kurve aufgetragen.
+Die Kurve wird so normiert, dass ihr Peak genauso hoch ist, wie der höchste Balken. Der so entstehende Plot ist in \autoref{fig:plot_gauss} zu sehen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_gauss.pdf}
+    \caption{Balkendiagramm der Count-Messwerte mit einer Balkenbreite von 66 Counts und einer Gaußverteilung.}
+    \label{fig:plot_gauss}
+\end{figure}
+
+Des Weiteren wird ein Plot erstellt, in dem die Daten mit einer Poissonverteilung verglichen werden.
+
+Eine Poissonverteilung berechnet sich nach
+
+\begin{equation}
+    P_\lambda (k) = \frac{\lambda^k}{k!} e^{-\lambda},
+\end{equation}
+
+wobei $k \in \mathds{N}$ und einem $\lambda$, das die Varianz und den Erwartungswert beschreibt. 
+Da für die Poissonverteilung nur diskrete $k$ benutzt werden können und $k=0$ dem kleinsten Wert entsprechen muss,
+muss $\lambda$ entsprechend normiert werden.
+Es berechnet sich also über
+
+\begin{equation}
+    \lambda = \sum_{i=1}^{N} (p_i (x_i - x_min) \cdot \frac{1}{L_\text{bin}}) \approx 4,9.
+\end{equation}
+
+Dabei ist $L_\text{bin} = 66$ die Größe der einzelnen Bins.
+Die Balken der so entstehenden Poissonverteilung werden so normiert, dass der größte dieser denselben Wert wie der größte der Messwerte besitzt.
+Der entsprechende Plot ist in \autoref{fig:plot_poisson} zu finden.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{build/plot_poisson.pdf}
+    \caption{Balkendiagramm der Count-Messwerte mit einer Balkenbreite von 66 Counts und einer Poissonverteilung.}
+    \label{fig:plot_poisson}
+\end{figure}

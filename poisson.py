@@ -9,8 +9,14 @@ def csv_read(pathToFile, delimiter=";"):
             content.append((line.rstrip()).split(delimiter))
     return content
 
-def gaussVerteilung(x, mu, sigma2):
-    return ((1/np.sqrt(2*np.pi*sigma2)) * np.e**(- (x - mu)**2/(2*sigma2) ))
+def factorial(k):
+    if(k > 0):
+        return k*factorial(k-1)
+    else:
+        return 1
+
+def poissonVerteilung(k, kFact, lam):
+    return ((lam**k)/kFact) * np.e**(-lam)
 
 werte = csv_read("csv/100messungen.csv")
 
@@ -38,14 +44,29 @@ for c in data:
     bins[i-1]+=1
 
 #Verteilung
+lam = 0
+for x_i in data:
+    lam += 1/100 * (x_i-minimum) * 1/size
 
+print(lam)
 
-xline = np.linspace(0,n,n) * size + minimum
-plt.bar(xline, bins, width=size, align="center", label="Messwerte")
+xline = np.linspace(0,n-1,n)
+plt.bar(xline * size + minimum, bins, width=0.8*size, align="center", label="Messwerte")
 
+xlineFact = np.zeros(n)
+for i in range(0, n):
+    xlineFact[i] = factorial(i)
+
+scale=np.amax(bins)/np.amax(poissonVerteilung(xline, xlineFact, lam))
+
+labelPoisson = xline * size + minimum
+plt.bar(labelPoisson, scale*poissonVerteilung(xline, xlineFact, lam), color="r", width=(size*0.4), align="center", label="Theoriekurve")
+
+print(xlineFact)
+print(poissonVerteilung(xline, xlineFact, lam))
 
 plt.xlabel(r"Counts")
 plt.ylabel(r"Häufigkeit")
 plt.legend()
 plt.tight_layout()
-plt.savefig("build/plot_gauss.pdf")
+plt.savefig("build/plot_poisson.pdf")

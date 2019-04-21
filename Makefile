@@ -16,8 +16,11 @@ build/plot_E42.pdf: plotE42.py matplotlibrc header-matplotlib.tex | build
 build/plot_gauss.pdf: gauss.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python gauss.py
 
+build/plot_poisson.pdf: poisson.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python poisson.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_countd24.pdf build/plot_E24.pdf build/plot_countd42.pdf build/plot_E42.pdf build/plot_gauss.pdf
+build/main.pdf: build/plot_countd24.pdf build/plot_E24.pdf build/plot_countd42.pdf build/plot_E42.pdf build/plot_gauss.pdf build/plot_poisson.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

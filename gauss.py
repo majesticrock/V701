@@ -27,6 +27,7 @@ maximum = np.amax(data)
 n = 9
 bins = np.zeros(n)
 size = (maximum-minimum)/n
+print(size)
 
 for c in data:
     m = c
@@ -48,14 +49,17 @@ sigma2 = 0
 for x_i in data:
     sigma2 += ((x_i - mu)**2 * (1/100))
 
+print(mu)
+print(sigma2)
+
 #Normierungsfaktor der Gaußkurve entfernen
 #multipliziere mit höchstem bin
 scale = np.sqrt(2*np.pi*sigma2) * np.amax(bins)
 
-xline = np.linspace(0,n,n) * size + minimum
-plt.bar(xline, bins, width=size, align="center", label="Messwerte")
+xline = (np.linspace(0,n-1,n) + 0.5) * size + minimum
+plt.bar(xline, bins, width=0.75*size, align="center", label="Messwerte")
 
-xgauss = np.linspace(minimum, (n*size)+minimum)
+xgauss = np.linspace(minimum, maximum)
 
 labelGauss = np.linspace(0,n) * size + minimum
 plt.plot(labelGauss, scale * gaussVerteilung(xgauss, mu, sigma2), "r-",label="Theoriekurve")
