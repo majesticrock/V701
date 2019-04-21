@@ -70,7 +70,7 @@ Die Koeffizienten werden erneut mittels Python 3.7.0 bestimmt. Sie betragen
 Damit lässt sich $E_{2,4}(x_\text{mittel}) = (2,5 \pm 0,3)$ MeV berechnen. Der Fehler berechnet sich dabei nach
 
 \begin{equation}
-    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{2,4} \Delta \bigg)^2 + \bigg(m_{2,4} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( n_{2,4} \bigg)^2}.
+    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{2,4} \Delta \bigg)^2 + \bigg(m_{2,4} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( \Delta n_{2,4} \bigg)^2}.
 \end{equation}
 
 
@@ -121,7 +121,7 @@ Zur Bestimmung der Energie werden die Werte aus \autoref{tab:d42cm} aufgetragen.
     E_{4,2}(x) = m_{4,2} x + n_{4,2}
 \end{equation}
 
-gelegt. Der entstehende Plot ist in \autoref{fig:plotE42} zu sehen.
+gelegt. Der entstehende Plot ist in \autoref{fig:plotE24} zu sehen.
 
 \begin{figure}
     \centering
@@ -140,10 +140,10 @@ Mittels Python 3.7.0 werden die Koeffizienten als
 \end{center}
 
 bestimmt.
-Somit wird $E_{4,2}(x_\text{mittel} = (2,8 \pm 0,2)$ MeV berechnet. Der zugehörige Fehler berechnet sich nach
+Somit wird $E_{4,2}(x_\text{mittel}) = (2,8 \pm 0,2)$ MeV berechnet. Der zugehörige Fehler berechnet sich nach
 
 \begin{equation}
-    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{4,2} \Delta \bigg)^2 + \bigg(m_{4,2} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( n_{4,2} \bigg)^2}.
+    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot \Delta m_{4,2} \bigg)^2 + \bigg(m_{4,2} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg(\Delta n_{4,2} \bigg)^2}.
 \end{equation}
 
 
