@@ -37,28 +37,12 @@ for c in data:
     
     bins[i-1]+=1
 
-#verteilung
-#erwartungswert mu = sum(x_i * p_i) x_i = werte, p_i = wahrsch. pro wert
-mu = 0
-for x_i in data:
-    mu += (x_i * (1/100))
+#Verteilung
 
-#Varianz sigma^2 = sum((x_i - mu)^2 * p_i)
-sigma2 = 0
-for x_i in data:
-    sigma2 += ((x_i - mu)**2 * (1/100))
-
-#Normierungsfaktor der Gaußkurve entfernen
-#multipliziere mit höchstem bin
-scale = np.sqrt(2*np.pi*sigma2) * np.amax(bins)
 
 xline = np.linspace(0,n,n) * size + minimum
 plt.bar(xline, bins, width=size, align="center", label="Messwerte")
 
-xgauss = np.linspace(minimum, (n*size)+minimum)
-
-labelGauss = np.linspace(0,n) * size + minimum
-plt.plot(labelGauss, scale * gaussVerteilung(xgauss, mu, sigma2), "r-",label="Theoriekurve")
 
 plt.xlabel(r"Counts")
 plt.ylabel(r"Häufigkeit")
