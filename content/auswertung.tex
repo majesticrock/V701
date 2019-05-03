@@ -1,11 +1,14 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Distanz von 2,4 cm}
+In diesem Kapitel werden die zunächst die Messwerte betrachtet, die bei einer Distanz $x_0 = 2,4$ cm entstnaden sind, betrachtet.
+Anschließend werden die Werte bei $x_0 = 4,2$ cm ausgewertet und zum Schluss wird die statistische Verteilung der Zerfälle überprüft.
+
+\subsection{Auswertung der Werte bei einer Distanz von 2,4 cm}
 
 Zur Bestimmung der mittleren Reichweite der $\alpha$-Strahlung werden die Daten aus \autoref{tab:d24cm} geplottet.
-Dazu werden die Counts gegen effektive Länge $x := \dfrac{x_0 p}{p_0}$ aufgetragen.
-Des Weiteren wird durch den starken nahezu linearen Abfall der Counts gegen Ende der Messung ein linearer Fit der Form
+Dazu wird die Gesamtzählrate gegen die effektive Länge $x := \dfrac{x_0 p}{p_0}$ aufgetragen.
+Des Weiteren wird durch den starken nahezu linearen Abfall der Gesamtzählrate bei den Werte 14 bis 23 (650 mbar bis 875 mbar) ein linearer Fit der Form
 
 \begin{equation}
     c(x) = a_{2,4} \cdot x + b_{2,4}
@@ -18,32 +21,31 @@ gelegt.
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_countd24.pdf}
-    \caption{Plot der Messwerte bei $x_0 = 2,4$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
+    \caption{Plot der Gesamtzählrate gegen den Druck bei $x_0 = 2,4$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
     \label{fig:plot24}
 \end{figure}
 
 Dieser Plot ist in \autoref{fig:plot24} zu sehen.
 Mittels Python 3.7.0 werden die Koeffizienten wie folgt bestimmt:
 
-\begin{center}
-    $a_{2,4} = (-9,0 \pm 0,6) \cdot 10^{4}$ $\frac{1}{\symup{cm}}$
-
-    $b_{2,4} = (2,0 \pm 0,1) \cdot 10^{5}$.
-\end{center}
+\begin{align}
+    a_{2,4} &= (-9,0 \pm 0,6) \cdot 10^{4} \frac{1}{\symup{cm}},\\
+    b_{2,4} &= (2,0 \pm 0,1) \cdot 10^{5}.
+\end{align}
 
 Daraus errechnet sich direkt die mittlere Reichweite 
 
 \begin{center}
-    $x_\text{mittel} = \frac{c_{2,4} - b_{2,4}}{a_{2,4}} = (1,5 \pm 0,2)$ cm.
+    $R_\text{m} = \frac{c_{2,4} - b_{2,4}}{a_{2,4}} = (1,9 \pm 0,2)$ cm.
 \end{center}
 
-wobei $c_{2,4}$ der höchste "Count"-Wert aus \autoref{tab:d24cm} ist. Der zugehörige Fehler nach Gauß berechnet sich nach
+wobei $c_{2,4}$ die Hälfte der höchsten Gesamtzählrate aus \autoref{tab:d24cm} ist. Der zugehörige Fehler nach Gauß berechnet sich nach
 
 \begin{equation}
-    \Delta x_\text{mittel} = \sqrt{\bigg(\frac{1}{a_{2,4}} \cdot \Delta b_{2,4} \bigg)^2 + \bigg( \frac{c_{2,4}-b_{2,4}}{a_{2,4}^2} \cdot \Delta a_{2,4} \bigg)^2}.
+    \Delta R_\text{m} = \sqrt{\bigg(\frac{1}{a_{2,4}} \cdot \Delta b_{2,4} \bigg)^2 + \bigg( \frac{c_{2,4}-b_{2,4}}{a_{2,4}^2} \cdot \Delta a_{2,4} \bigg)^2}.
 \end{equation}
 
-Um die Energie der Strahlung an dieser Stelle zu errechnen werden die Energiewerte aus \autoref{tab:d24cm} gegen die effektive Länge in einem Plot aufgetragen.
+Um die Energie der Strahlung an dieser Stelle zu errechnen, werden die Energiewerte aus \autoref{tab:d24cm} gegen die effektive Länge in einem Plot aufgetragen.
 Durch die Werte, die sich linear verhalten, wird ein Fit der Form
 
 \begin{equation}
@@ -61,58 +63,69 @@ gelegt. Dieser Plot ist in \autoref{fig:plotE24} zu sehen
 
 Die Koeffizienten werden erneut mittels Python 3.7.0 bestimmt. Sie betragen
 
-\begin{center}
-    $m_{2,4} = (-1,09 \pm 0,02)$ $\frac{\symup{MeV}}{\symup{cm}}$
+\begin{align}
+    m_{2,4} &= (-1,09 \pm 0,02) \frac{\symup{MeV}}{\symup{cm}}\\
+    n_{2,4} &= (4,09 \pm 0,2) \symup{MeV}.
+\end{align}
 
-    $n_{2,4} = (4,09 \pm 0,2)$ MeV.
-\end{center}
-
-Damit lässt sich $E_{2,4}(x_\text{mittel}) = (2,5 \pm 0,3)$ MeV berechnen. Der Fehler berechnet sich dabei nach
+Damit lässt sich $E_{2,4}(R_\text{m}) = (2,1 \pm 0,2)$ MeV berechnen. Der Fehler berechnet sich dabei nach
 
 \begin{equation}
-    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot m_{2,4} \Delta \bigg)^2 + \bigg(m_{2,4} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg( \Delta n_{2,4} \bigg)^2}.
+    \Delta E(R_\text{m}) = \sqrt{\bigg( R_\text{m} \cdot m_{2,4} \Delta \bigg)^2 + \bigg(m_{2,4} \cdot \Delta R_\text{m} \bigg)^2 + \bigg( \Delta n_{2,4} \bigg)^2}.
 \end{equation}
 
+Des Weiteren wird zu Vergleichszwecken die Energie nach \eqref{eqn:mittlere-reichweite} berechnet:
 
+\begin{center}
+    $E_{2,4,R} = \sqrt[3]{\frac{R_\text{m}^2}{3,1}} = (3,2 \pm 0,2)$ MeV,
+\end{center}
 
-\subsection{Distanz von 4,2 cm}
+wobei sich der Fehler nach Gauß über
 
-Die gleiche Prozedur wird nun mit einem anderen $x_0$ durchgeführt. Dieses beträgt nun $4,2$ cm.
-Zunächst werden aus den Daten in \autoref{tab:d42cm} die Counts gegen die effektive Länge aufgetragen. Erneut wird ein Fit der Form
+\begin{equation}
+\label{eqn:fehlerenergie}
+    \Delta E_{R,2,4} = \sqrt{ \bigg ( \dfrac{2\sqrt[3]{100}}{3\sqrt[3]{961 R_\text{m}}} \cdot \Delta R_\text{m} \bigg)^2 }
+\end{equation}
+
+berechnet.
+
+\subsection{Auswertung der Werte bei einer Distanz von 4,2 cm}
+
+Die gleiche Prozedur wird nun mit einer anderen Distanz $x_0$, also einer anderen effektiven Länge pro Druck, durchgeführt. Dieses beträgt nun $4,2$ cm.
+Zunächst werden aus den Daten in \autoref{tab:d42cm} die Gesamtzählrate gegen die effektive Länge aufgetragen. Erneut wird ein Fit der Form
 
 \begin{equation}
     c(x) = a_{4,2} \cdot x + b_{4,2}
 \end{equation}
 
-über den linearen Abfall gelegt. Der entstehende Plot ist in \autoref{fig:plot42} zu sehen.
+über den linearen Abfall bei den Werten 6 bis 14 (250 mbar bis 525 mbar) gelegt. Der entstehende Plot ist in \autoref{fig:plot42} zu sehen.
 
 \input{../content/d42cm.tex}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_countd42.pdf}
-    \caption{Plot der Messwerte bei $x_0 = 4,2$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
+    \caption{Plot der Gesamtzählrate gegen den Druck bei $x_0 = 4,2$ cm, wobei über den starken Abfall ein linearer Fit gelegt ist.}
     \label{fig:plot42}
 \end{figure}
 
 Mittels Python 3.7.0 werden die Koeffizienten bestimmt:
 
-\begin{center}
-    $a_{4,2cm} = (-2,8 \pm 0,2) \cdot 10^{4}$ $\frac{1}{\symup{cm}}$
-
-    $b_{4,2cm} = (6,6 \pm 0,4) \cdot 10^{4}$.
-\end{center}
+\begin{align}
+    a_{4,2cm} &= (-2,8 \pm 0,2) \cdot 10^{4} \frac{1}{\symup{cm}}
+    b_{4,2cm} &= (6,6 \pm 0,4) \cdot 10^{4}.
+\end{align}
 
 Damit kann erneut die mittlere Reichweite bestimmt werden:
 
 \begin{center}
-    $x_\text{mittel} = \frac{c_{4,2} - b_{4,2}}{a_{4,2}} = (1,3 \pm 0,2)$ cm.
+    $R_\text{m} = \frac{c_{4,2} - b_{4,2}}{a_{4,2}} = (1,9 \pm 0,2)$ cm.
 \end{center}
 
-Dabei ist $c_{4,2}$ der höchste "Count"-Wert aus \autoref{tab:d42cm}. Der Fehler nach  Gauß berechnet sich nach
+Dabei ist $c_{4,2}$ die Hälfte der höchsten Gesamtzählrate aus \autoref{tab:d42cm}. Der Fehler nach  Gauß berechnet sich nach
 
 \begin{equation}
-    \Delta x_\text{mittel} = \sqrt{\bigg(\frac{1}{a_{4,2}} \cdot \Delta b_{4,2} \bigg)^2 + \bigg( \frac{c_{4,2}-b_{4,2}}{a_{4,2}^2} \cdot \Delta a_{4,2} \bigg)^2}.
+    \Delta R_\text{m} = \sqrt{\bigg(\frac{1}{a_{4,2}} \cdot \Delta b_{4,2} \bigg)^2 + \bigg( \frac{c_{4,2}-b_{4,2}}{a_{4,2}^2} \cdot \Delta a_{4,2} \bigg)^2}.
 \end{equation}
 
 Zur Bestimmung der Energie werden die Werte aus \autoref{tab:d42cm} aufgetragen. Über das lineare Gefälle wird ein Fit der Form
@@ -127,29 +140,34 @@ gelegt. Der entstehende Plot ist in \autoref{fig:plotE24} zu sehen.
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_E24.pdf}
     \caption{Plot der Energien bei $x_0 = 4,2$ cm, wobei über den linearen Teil ein Fit gelegt ist.}
-    \label{fig:plotE24}
+    \label{fig:plotE42}
 \end{figure}
 
 In diesem Plot ist aus Gründen der Lesbarkeit und Skalierung der letzte Wert nicht aufgenommen. Bei diesem wurden keine Strahlung mehr gemessen.
 Mittels Python 3.7.0 werden die Koeffizienten als
 
-\begin{center}
-    $m_{4,2} = (-0,85 \pm 0,04)$ $\frac{\symup{MeV}}{\symup{cm}}$
-
-    $n_{4,2} = (3,91 \pm 0,07)$ MeV
-\end{center}
+\begin{align}
+    m_{4,2} &= (-0,98 \pm 0,04) \frac{\symup{MeV}}{\symup{cm}}\\
+    n_{4,2} &= (4,01 \pm 0,05) \symup{MeV}
+\end{align}
 
 bestimmt.
-Somit wird $E_{4,2}(x_\text{mittel}) = (2,8 \pm 0,2)$ MeV berechnet. Der zugehörige Fehler berechnet sich nach
+Somit wird $E_{4,2}(R_\text{m}) = (2,2 \pm 0,2)$ MeV berechnet. Der zugehörige Fehler berechnet sich nach
 
 \begin{equation}
-    \Delta E(x_\text{mittel}) = \sqrt{\bigg( x_\text{mittel} \cdot \Delta m_{4,2} \bigg)^2 + \bigg(m_{4,2} \cdot \Delta x_\text{mittel} \bigg)^2 + \bigg(\Delta n_{4,2} \bigg)^2}.
+    \Delta E(R_\text{m}) = \sqrt{\bigg( R_\text{m} \cdot \Delta m_{4,2} \bigg)^2 + \bigg(m_{4,2} \cdot \Delta R_\text{m} \bigg)^2 + \bigg(\Delta n_{4,2} \bigg)^2}.
 \end{equation}
 
+Erneut wird zu Vergleichszwecken die Energie nach \eqref{eqn:mittlere-reichweite} berechnet:
+
+\begin{center}
+    $E_{4,2,R} = \sqrt[3]{\frac{R_\text{m}^2}{3,1}} = (3,2 \pm 0,2)$ MeV,
+\end{center}
+
+Der Fehler berechnet sich wie oben nach \eqref{eqn:fehlerenergie}.
 
 
-
-\subsection{Verteilung der Anzahl der "Counts"}
+\subsection{Verteilung der Gesamtzählrate}
 
 Die aufgenommen Messwerte bei einer Integrationszeit von $\Delta t = 10$ s sind in \autoref{tab:100werte} zu sehen.
 
@@ -164,11 +182,11 @@ Der Erwartungswert dieser Daten berechnet sich nach
 wobei $N$ die Anzahl der Messwerte, $x_i$ der jeweilige Wert und $p_i$ die Wahrscheinlichkeit für den jeweiligen Wert ist.
 In diesem Fall ist $N = 100$ und $p_i = \dfrac{1}{N}$ für alle Daten.
 
-Somit beträgt $\mu \approx 3827,43$.
+Somit beträgt $\mu \approx 3827$.
 Die Varianz lässt sich mittels $\mu$ wie folgt berechnen:
 
 \begin{equation}
-    \sigma^2 = \sum_{i=1}^{N} (x_i - \mu)^2 \cdot p_i \approx 19418,025.
+    \sigma^2 = \sum_{i=1}^{N} (x_i - \mu)^2 \cdot p_i \approx 1941.
 \end{equation}
 
 Damit lässt sich eine Gaußkurve der Form
@@ -183,7 +201,7 @@ Die Kurve wird so normiert, dass ihr Peak genauso hoch ist, wie der höchste Bal
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_gauss.pdf}
-    \caption{Balkendiagramm der Count-Messwerte mit einer Balkenbreite von 66 Counts und einer Gaußverteilung.}
+    \caption{Balkendiagramm der Gesamtzählrate mit einer Balkenbreite von 66 und einer Gaußverteilung.}
     \label{fig:plot_gauss}
 \end{figure}
 
@@ -201,16 +219,15 @@ muss $\lambda$ entsprechend normiert werden.
 Es berechnet sich also über
 
 \begin{equation}
-    \lambda = \sum_{i=1}^{N} (p_i (x_i - x_min) \cdot \frac{1}{L_\text{bin}}) \approx 4,9.
+    \lambda = \sum_{i=1}^{N} \bigg( p_i \bigg( x_i - x_\text{min} \bigg) \cdot \frac{1}{L_\text{bin}} \bigg) \approx 4,9.
 \end{equation}
 
 Dabei ist $L_\text{bin} = 66$ die Größe der einzelnen Bins.
-Die Balken der so entstehenden Poissonverteilung werden so normiert, dass der größte dieser denselben Wert wie der größte der Messwerte besitzt.
 Der entsprechende Plot ist in \autoref{fig:plot_poisson} zu finden.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{build/plot_poisson.pdf}
-    \caption{Balkendiagramm der Count-Messwerte mit einer Balkenbreite von 66 Counts und einer Poissonverteilung.}
+    \caption{Balkendiagramm der Gesamtzählrate mit einer Balkenbreite von 66 und einer Poissonverteilung.}
     \label{fig:plot_poisson}
 \end{figure}

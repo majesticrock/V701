@@ -51,7 +51,7 @@ for x_i in data:
 print(lam)
 
 xline = np.linspace(0,n-1,n)
-plt.bar(xline * size + minimum, bins, width=0.8*size, align="center", label="Messwerte")
+plt.bar(xline, bins/100, width=0.8, align="center", label="Messwerte")
 
 xlineFact = np.zeros(n)
 for i in range(0, n):
@@ -59,14 +59,14 @@ for i in range(0, n):
 
 scale=np.amax(bins)/np.amax(poissonVerteilung(xline, xlineFact, lam))
 
-labelPoisson = xline * size + minimum
-plt.bar(labelPoisson, scale*poissonVerteilung(xline, xlineFact, lam), color="r", width=(size*0.4), align="center", label="Theoriekurve")
+labelPoisson = xline
+plt.bar(xline, poissonVerteilung(xline, xlineFact, lam), color="r", width=(0.4), align="center", label="Theoriekurve")
 
 print(xlineFact)
 print(poissonVerteilung(xline, xlineFact, lam))
 
-plt.xlabel(r"Counts")
-plt.ylabel(r"Häufigkeit")
+plt.xlabel(r"Bin Nummer")
+plt.ylabel(r"Wahrscheinlichkeit")
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot_poisson.pdf")

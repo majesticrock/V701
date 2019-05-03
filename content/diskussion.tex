@@ -3,38 +3,46 @@
 
 Die ermittelten mittlere Reichweiten sind
 
-\begin{center}
-    $x_\text{mittel, 2,4} = (1,4 \pm 0,2)$ cm
+\begin{align}
+    x_\text{mittel, 2,4} &= (1,9 \pm 0,2) \symup{cm},\\
+    x_\text{mittel, 4,2} &= (1,9 \pm 0,2) \symup{cm}.
+\end{align}
 
-    $x_\text{mittel, 4,2} = (1,3 \pm 0,2)$ cm.
-\end{center}
-
-Sie weichen lediglich um $~7,7\%$ von einander ab, was innerhalb der Standardabweichung von $~14\%$ liegt.
-Der Theorie nach sollten die beiden Werte gleich sein, da die mittlere Reichweite keine Funktion der Distanz zwischen Messvorrichtung und Strahlungsquelle ist.
+Sie weichen innerhalb der Rundung nicht voneinander ab. Dies spricht auch mit der Theorie überein.
+Nach dieser sollten die beiden Werte gleich sein, da die mittlere Reichweite keine Funktion der Distanz zwischen Messvorrichtung und Strahlungsquelle ist.
 
 Die Energien betragen
 
-\begin{center}
-    $E_{2,4} = (2,5 \pm 0,3)$ MeV
+\begin{align}
+    E_{2,4} &= (2,1 \pm 0,2) \symup{MeV},\\
+    E_{4,2} &= (2,2 \pm 0,2) \symup{MeV}.
+\end{align}
 
-    $E_{4,2} = (2,8 \pm 0,2)$ MeV.
-\end{center}
+Auch diese liegen sehr nah beieinander. Die Abweichung beträgt $~4\%$, was ebenfalls gerade innerhalb der Standardabweichung von beiden Werten liegt.
 
-Auch diese liegen sehr nah beieinander. Die Abweichung beträgt $~12\%$, was ebenfalls gerade innerhalb der Standardabweichung von $E_{2,4}$ liegt.
+Die Energie, die mittels \eqref{eqn:mittlere-reichweite} berechnet werden betragen
+
+\begin{align}
+    E_{R,2,4} &= (3,3 \pm 0,2) \symup{MeV},\\
+    E_{R,4,2} &= (3,3 \pm 0,2) \symup{MeV}.
+\end{align}
+
+Diese Werte sind erneut innerhalb der Rundung gleich. Jedoch weichen sie sehr stark von den zuvor bestimmten Energiewerten ab.
+Dies hängt vermutlich damit zusammen, dass die Formel nur bis Energien von $\approx 2,5$ MeV gültig ist, die innerhalb dieser Formel sogar überschritten werden und auch mit der anderen Berechnungsmethode nahezu erreicht werden.
 
 Die Geraden in den Plots approximieren den linearen Abfall gut. Dies kann ebenfalls an den geringen Fehler der Koeffizienten des Fits gesehen werden.
 
 Der Druck innerhalb der Röhre kann jedoch nur bedingt gut eingestellt werden, da die Skala nicht besonders genau ist.
-Eine größere Ungenauigkeit entsteht dadurch, dass in dem Computerprogramm nicht die Energien der einzelnen Teilchen aufgeführt sind, sondern nur "Channel",
+Eine größere Ungenauigkeit entsteht dadurch, dass in dem Computerprogramm nicht die Energien der einzelnen Teilchen aufgeführt sind, sondern nur "Kanal",
 bei denen davon auszugehen ist, dass der höchste ungefähr 4 MeV entspricht.
-Jedoch fällt auf, dass bereits bei den Messungen mit zwei verschiedenen Abständen ein anderer Channel der höchste ist.
-In der Auswertung wird der Channel 1251, welcher bei $x_0 = 2,4$ cm der größte ist, mit 4 MeV gleichgesetzt.
+Jedoch fällt auf, dass bereits bei den Messungen mit zwei verschiedenen Abständen ein anderer Kanal der höchste ist.
+In der Auswertung wird der Kanal 1251, welcher bei $x_0 = 2,4$ cm der größte ist, mit 4 MeV gleichgesetzt.
 
 Bei der Überprüfung der Statistik fällt auf, dass die Poisson- und die Gaußverteilung mit den errchneten Koeffizienten sehr ähnlich zueinander ist.
-Beide sind für kleine "Count"-Zahlen sehr viel geringer als die gemessenen Zahlen.
+Beide sind für kleine Gesamtzählraten sehr viel geringer als die gemessenen Zahlen.
 Die Maxima der Theoriekurven und der experimentellen Werte sind jedoch in beiden Fällen sehr ähnlich.
 
-Zu beachten ist, dass radioaktiver Zerfall ein zufälliger Prozess ist. Dabei schwankt die Anzahl der Fälle theoretisch um einen Erwartungswert und folgt dabei einer Poisson-Verteilung.
+Zu beachten ist, dass radioaktiver Zerfall ein zufälliger Prozess ist. Dabei schwankt die Anzahl der Zerfälle theoretisch um einen Erwartungswert und folgt dabei einer Poisson-Verteilung.
 Diese nimmt bei genügend großem Mittelwert die Form einer Gaußverteilung an.
 Da jedoch eine solche Verteilung nur im Grenzfall gegen unendlich genau auftritt, gibt es bei endlichen Zahlen immer Abweichungen von dieser,
 womit sich die Abweichungen zwischen theoretischen und experimentellen Werten erklären lässt.

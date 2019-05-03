@@ -31,7 +31,7 @@ for values in werte:
         ydata[i] = float(values[1])
         i+=1
 
-
+#[7] bis [15]
 for i in range(0, 8):
     dataplotx[i] = xdata[i+7]
     dataploty[i] = ydata[i+7]
@@ -46,7 +46,7 @@ print(popt)             #a_{4,2cm} = (-2,8 \pm 0,2) \cdot 10^{4}
 print(np.sqrt(pcov))    #b_{4,2cm} = (6,6 \pm 0,4) \cdot 10^{4}
 
 plt.xlabel(r"Effektive Länge $x$ / cm")
-plt.ylabel(r"Counts")
+plt.ylabel(r"Gesamtzählrate")
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot_countd42.pdf")

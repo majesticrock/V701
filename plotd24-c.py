@@ -31,7 +31,7 @@ for values in werte:
         ydata[i] = float(values[1])
         i+=1
 
-#gerade von [18] bis [24]
+#gerade von [15] bis [24]
 for i in range(0, 9):
     dataplotx[i] = xdata[i+15]
     dataploty[i] = ydata[i+15]
@@ -45,7 +45,7 @@ print(popt)             #a_{2,4cm} = (-9,0 \pm 0,6) \cdot 10^{4}
 print(np.sqrt(pcov))    #b_{2,4cm} = (2,0 \pm 0,1) \cdot 10^{5} 
 
 plt.xlabel(r"Effektive Länge $x$ / cm")
-plt.ylabel(r"Counts")
+plt.ylabel(r"Gesamtzählrate")
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot_countd24.pdf")

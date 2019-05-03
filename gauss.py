@@ -64,7 +64,7 @@ xgauss = np.linspace(minimum, maximum)
 labelGauss = np.linspace(0,n) * size + minimum
 plt.plot(labelGauss, scale * gaussVerteilung(xgauss, mu, sigma2), "r-",label="Theoriekurve")
 
-plt.xlabel(r"Counts")
+plt.xlabel(r"Gesamtzählrate")
 plt.ylabel(r"Häufigkeit")
 plt.legend()
 plt.tight_layout()
